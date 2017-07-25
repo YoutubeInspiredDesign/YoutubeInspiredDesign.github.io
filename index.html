@@ -3,7 +3,7 @@
 	YOUTUBE INSPIRED DESIGN
 	Author: spaceshiptrooper
 	Copyright: 2017 Youtube Inspired Design
-	File Last Updated: 7/24/2017 at 12:03 A.M.
+	File Last Updated: 7/25/2017 at 12:28 A.M.
 
 -->
 <!DOCTYPE html>
@@ -123,17 +123,75 @@
 <script type="text/javascript">
 jQuery(document).ready(function() {
 
+	/*
+		This function is used to resize the height of the well divs based
+		on the height of the screen size.
+	*/
 	$('.well').css('height', $(window).height());
 
+	/*
+		The left panel by default has no overflow.
+		The overflow gets added when the user hovers over the left panel div.
+		This is where this function comes in.
+
+		This function adds the overflow scrollbar on mouse over and removes
+		the overflow scrollbar on mouse out.
+	*/
+	$('.left-panel').hover(function() {
+		$('.left-panel').addClass('scrollbar');
+	}, function() {
+		$('.left-panel').removeClass('scrollbar');
+	});
+
+	/*
+		This function can only be triggered once the data-video attribute is clicked on.
+	*/
 	$('[data-video]').click(function() {
 
+		/*
+			The purpose of this function is to dynamically insert elements into the middle panel
+			based on which data-video attribute you click on.
+
+			This part isn't part of the original Youtube Watch Later Play List layout.
+			It has been added into this inspiration design for functionality.
+		*/
+
+		/*
+			Grab the current data-video attribute that's clicked on.
+		*/
 		var video = $(this).attr('data-video');
+
+		/*
+			Grab the current data-video attribute value based on the value that was returned
+			from the video variable.
+		*/
 		var video_description = $('[data-video=' + video + ']');
 
-		var video_description = video_description.html();
+		/*
+			The returned value from video_description is an object so we have to append .html();
+			to this variable.
 
+			We also overwrite the original video_description variable.
+			We honestly don't need the original variable.
+
+			The point of having this variable is to dynamically display the Title and Author of the video.
+		*/
+		video_description = video_description.html();
+
+		/*
+			Again, we overwrite the video_description with this new line.
+			This line basically searches for the img element and then removes it.
+
+			We don't need the image because the image shouldn't be placed inside the middle panel.
+			There's no point of doing that. All we want is the TItle and Author of the video.
+		*/
 		video_description = $(video_description).find('img').remove().end();
 
+		/*
+			This part of the page just replaces the HTML elements within the middle panel
+			and then adds in a new iframe based on the video and adds in the video description
+			into the middle panel right under the iframe.
+		*/
 		$('.middle-panel').html('<iframe class="iframe" src="https://www.youtube.com/embed/' + video + '?autoplay=1" allowfullscreen></iframe>' + video_description.html());
 
 	});
