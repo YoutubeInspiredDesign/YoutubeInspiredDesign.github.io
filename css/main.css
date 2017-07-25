@@ -3,7 +3,7 @@
 	YOUTUBE INSPIRED DESIGN
 	Author: spaceshiptrooper
 	Copyright: 2017 Youtube Inspired Design
-	File Last Updated: 7/24/2017 at 12:03 A.M.
+	File Last Updated: 7/25/2017 at 12:28 A.M.
 
 */
 
@@ -59,10 +59,16 @@ a:active, a:focus, a:hover {
 }
 
 .left-panel {
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow: hidden;
 	word-wrap: break-word;
 	background-color: #F4F4F4;
+}
+
+/*
+	SCROLLBAR
+*/
+.scrollbar {
+	overflow-y: scroll;
 }
 
 /*
