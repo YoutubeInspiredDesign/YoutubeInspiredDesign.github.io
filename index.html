@@ -3,7 +3,7 @@
 	YOUTUBE INSPIRED DESIGN
 	Author: spaceshiptrooper
 	Copyright: 2017 Youtube Inspired Design
-	File Last Updated: 7/25/2017 at 12:28 A.M.
+	File Last Updated: 5/13/2019 at 9:30 P.M.
 
 -->
 <!DOCTYPE html>
@@ -18,9 +18,13 @@
 <!-- CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/responsive.css">
 <noscript>
 	<link rel="stylesheet" href="css/noscript.css">
 </noscript>
+<style>
+
+</style>
 </head>
 
 <body>
@@ -124,12 +128,6 @@
 jQuery(document).ready(function() {
 
 	/*
-		This function is used to resize the height of the well divs based
-		on the height of the screen size.
-	*/
-	$('.well').css('height', $(window).height());
-
-	/*
 		The left panel by default has no overflow.
 		The overflow gets added when the user hovers over the left panel div.
 		This is where this function comes in.
@@ -193,6 +191,11 @@ jQuery(document).ready(function() {
 			into the middle panel right under the iframe.
 		*/
 		$('.middle-panel').html('<iframe class="iframe" src="https://www.youtube.com/embed/' + video + '?autoplay=1" allowfullscreen></iframe>' + video_description.html());
+
+		/*
+			Scrolls to the middle-panel if you're in mobile view.
+		*/
+		document.querySelector('.middle-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
 
 	});
 

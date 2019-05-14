@@ -3,7 +3,7 @@
 	YOUTUBE INSPIRED DESIGN
 	Author: spaceshiptrooper
 	Copyright: 2017 Youtube Inspired Design
-	File Last Updated: 7/25/2017 at 12:28 A.M.
+	File Last Updated: 5/13/2019 at 9:30 P.M.
 
 */
 
@@ -38,11 +38,17 @@ a:active, a:focus, a:hover {
 /*
 	BOOTSTRAP RELATED
 */
+.well:before {
+	display: flex;
+
+}
+
 .well {
 	border-radius: 0px;
 	min-height: 500px;
 	background-color: #FFFFFF;
 	border: 0px;
+	height: 100vh;
 }
 
 /*
